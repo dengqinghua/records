@@ -76,6 +76,10 @@ rb_ary_and(VALUE ary1, VALUE ary2)
 * 对ary1中的元素做循环, 如果能够找到Hash表找到ary1的元素
 便将该元素从表中删除，并将该元素push值ary3
 
+算法复杂度
+---------
+O(x + y), 其中x和y分别为ary1和ary2的长度
+
 讨论
 ----
 * 如何优化算法?
