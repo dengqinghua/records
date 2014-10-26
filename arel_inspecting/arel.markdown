@@ -51,18 +51,16 @@ arel = user.
 #   LIMIT 10
 #   OFFSET 10
 arel.to_sql
-
-File.write('arel.dot', arel.to_dot)
-system %x(dot arel.dot -T png -o arel.png)
 ```
 
 ## Arel-SQL Mapping
 ```ruby
 File.write('arel.dot', arel.to_dot)
-```
-``` shell
 system %x(dot arel.dot -T png -o arel.png)
 ```
+
+![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
+
 
 
 
