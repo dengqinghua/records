@@ -1,7 +1,4 @@
 # Arel Inspection
-
-[TOC]
-
 ## What is Arel
 
 ActiveRelation -> Arel
@@ -10,11 +7,11 @@ Arel is a SQL AST manager for Ruby
 
 Keywords:
 
-1.  [AST](http://en.wikipedia.org/wiki/Abstract_syntax_tree)
-2.  [Visitor Pattern](http://en.wikipedia.org/wiki/Visitor_pattern)
+1. [AST](http://en.wikipedia.org/wiki/Abstract_syntax_tree)
+2. [Visitor Pattern](http://en.wikipedia.org/wiki/Visitor_pattern)
 
 ## Usage of Arel
-### Using with ActiveRecord::Base.find\_by\_sql
+### Using with *ActiveRecord::Base.find\_by\_sql*
 ```ruby
 require 'arel'
 require 'active_record'
@@ -53,7 +50,7 @@ sql = arel.to_sql
 User.find_by_sql(sql)
 ```
 
-### Using with ActiveRecord::Base.where
+### Using with *ActiveRecord::Base.where*
 ```ruby
 # ... Some codes are ommited
 
