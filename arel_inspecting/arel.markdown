@@ -1,6 +1,8 @@
 # Arel Inspection
 
-[toc]
+* auto-gen TOC:
+{:toc}
+
 
 ## What is Arel
 
