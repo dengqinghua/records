@@ -70,7 +70,11 @@ SELECT  weight, hight FROM `products`
 ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
 ### The ORIGIN DESIGN of AST:
+
 - SelectStatement
+
 ![ORIGIN-SQL1](https://www.sqlite.org/images/syntax/simple-select-stmt.gif)
+
 - SelectCore
+
 ![ORIGIN-SQL2](https://www.sqlite.org/images/syntax/select-core.gif)
