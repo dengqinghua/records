@@ -1,5 +1,7 @@
 # Arel Inspection
 
+[TOC]
+
 ## What is Arel
 
 ActiveRelation -> Arel
@@ -8,15 +10,11 @@ Arel is a SQL AST manager for Ruby
 
 Keywords:
 
-1.  [AST][1]
-2.  [SQL LANG][2]
-3.  [Visitor Pattern][3]
-
-[1]: http://en.wikipedia.org/wiki/Abstract_syntax_tree 'AST'
-[2]: https://www.sqlite.org/lang_select.html 'SQL LANG'
-[3]: http://en.wikipedia.org/wiki/Visitor_pattern 'Visitor Pattern'
+1.  [AST](http://en.wikipedia.org/wiki/Abstract_syntax_tree)
+2.  [Visitor Pattern](http://en.wikipedia.org/wiki/Visitor_pattern)
 
 ## Usage of Arel
+### Using with ActiveRecord::Base.find\_by\_sql
 ```ruby
 require 'arel'
 require 'active_record'
@@ -27,7 +25,7 @@ ActiveRecord::Base.establish_connection(
   database: 'test',
   host:     'localhost',
   username: 'root',
-  password: '1024',
+  password: '1024'
 )
 
 # 'id'
@@ -48,9 +46,30 @@ arel = user.
 # SELECT  weight, hight FROM `products`
 #   WHERE `products`.`name` = 'dsg'
 #   ORDER BY created_at DESC
-#   LIMIT 10
+#   LIMIT 5
 #   OFFSET 10
-arel.to_sql
+sql = arel.to_sql
+
+User.find_by_sql(sql)
+```
+
+### Using with ActiveRecord::Base.where
+```ruby
+# ... Some codes are ommited
+
+#  SELECT `users`.* FROM `users`
+#     WHERE(
+#       `users`.`id` < 10
+#          AND `users`.`id` > 0
+#          OR  `users`.`id` = 1024
+#     )
+User.where(
+  t[:id].
+    lt(10).
+    and(t[:id].gt 0).
+    or(t[:id].eq 1024)
+)
+
 ```
 
 ## Arel-SQL Mapping
@@ -62,7 +81,7 @@ system %x(dot arel.dot -T png -o arel.png)
 SELECT  weight, hight FROM `products`
   WHERE `products`.`name` = 'dsg'
   ORDER BY created_at DESC
-  LIMIT 10
+  LIMIT 5
   OFFSET 10
 ```
 
@@ -71,10 +90,10 @@ SELECT  weight, hight FROM `products`
 
 ### The ORIGIN DESIGN of AST:
 
-- SelectStatement
+- [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
 
 ![ORIGIN-SQL1](https://www.sqlite.org/images/syntax/simple-select-stmt.gif)
 
-- SelectCore
+- [SelectCore](https://www.sqlite.org/syntax/select-core.html)
 
 ![ORIGIN-SQL2](https://www.sqlite.org/images/syntax/select-core.gif)
