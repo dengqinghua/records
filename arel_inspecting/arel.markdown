@@ -18,42 +18,40 @@ Keywords:
 
 ## Usage of Arel
 ```ruby
-    require 'arel'
-    require 'active_record'
+require 'arel'
+require 'active_record'
 
-    # establish a connection
-    ActiveRecord::Base.establish_connection(
-      adapter: 'mysql2',
-      database: 'test',
-      host: 'localhost',
-      username: 'root',
-      password: '1024',
-    )
+# establish a connection
+ActiveRecord::Base.establish_connection(
+  adapter: 'mysql2',
+  database: 'test',
+  host: 'localhost',
+  username: 'root',
+  password: '1024',
+)
 
-    # 'id'
-    id = Arel::SqlLiteral.new('id')
+# 'id'
+id = Arel::SqlLiteral.new('id')
 
-    # "COUNT(id)"
-    id.count.to_sql
+# "COUNT(id)"
+id.count.to_sql
 
-    user = Arel::Table.new('user')
+user = Arel::Table.new('user')
 
-    arel = user.
-      project('id', 'user_name').
-      where(user[:nick_name].eq('dsg')).
-      order('created_at DESC').
-      skip(10).
-      take(5);
+arel = user.
+  project('id', 'user_name').
+  where(user[:nick_name].eq('dsg')).
+  order('created_at DESC').
+  skip(10).
+  take(5);
 
-    # SELECT  weight, hight FROM `products`
-    #   WHERE `products`.`name` = 'dsg'
-    #   ORDER BY created_at DESC
-    #   LIMIT 10
-    #   OFFSET 10
-    arel.to_sql
+# SELECT  weight, hight FROM `products`
+#   WHERE `products`.`name` = 'dsg'
+#   ORDER BY created_at DESC
+#   LIMIT 10
+#   OFFSET 10
+arel.to_sql
 
-    File.write('arel.dot', arel.to_dot)
-    system %x(dot arel.dot -T png -o arel.png)
+File.write('arel.dot', arel.to_dot)
+system %x(dot arel.dot -T png -o arel.png)
 ```
-
-
