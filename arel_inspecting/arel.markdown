@@ -1,4 +1,7 @@
 # Arel Inspection
+
+[toc]
+
 ## What is Arel
 
 ActiveRelation -> Arel
