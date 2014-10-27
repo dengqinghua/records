@@ -12,7 +12,7 @@ Keywords:
 
 ## How
 ### How to use Arel
-#### Using with `ActiveRecord::Base.find_by_sql`
+1. Using with `ActiveRecord::Base.find_by_sql`
 ```ruby
 require 'arel'
 require 'active_record'
@@ -51,7 +51,7 @@ sql = arel.to_sql
 User.find_by_sql(sql)
 ```
 
-#### Using with `ActiveRecord::Base.where`
+2. Using with `ActiveRecord::Base.where`
 ```ruby
 # ... Some codes are ommited
 #
@@ -68,21 +68,20 @@ User.where(
     or(t[:id].eq 1024)
 )
 ```
-
-#### Arel-SQL Mapping
+### Arel-SQL Mapping
 ```ruby
 File.write('arel.dot', arel.to_dot)
 system %x(dot arel.dot -T png -o arel.png)
 ```
 ```SQL
-SELECT  weight, hight FROM `products`
-  WHERE `products`.`name` = 'dsg'
-  ORDER BY created_at DESC
-  LIMIT 5
-  OFFSET 10
+  SELECT  id, user_name FROM `users`
+    WHERE `user`.`nick_name` = 'dsg'
+    ORDER BY created_at DESC
+    LIMIT 5
+    OFFSET 10
 ```
 
-#### The ORIGIN DESIGN of AST:
+1. The ORIGIN DESIGN of AST:
 
 - [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
 
@@ -92,16 +91,17 @@ SELECT  weight, hight FROM `products`
 
 ![ORIGIN-SQL2](https://www.sqlite.org/images/syntax/select-core.gif)
 
-#### The Arel-AST
+2. The Arel-AST
 ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
 ### How Arel works?
+- key method: `to_sql`
 ```ruby
 id    = Arel::SqlLiteral.new('id')
 count = id.count
 count.to_sql
 ```
-#### Inspecting to\_sql
+
 ```ruby
 def to_sql engine = Table.engine
   engine.connection.visitor.accept self
@@ -113,18 +113,18 @@ Arel needs a engine: *ActiveRecord::Base*
 Arel::Table.engine
 ```
 
-When connectioned, the connection has a visitor
+- When connectioned, the connection has a visitor
 ```ruby
 connection = ActiveRecord::Base.connection
 visitor    = connection.visitor
 ```
 
-Visitor can accept query object
+- Visitor can accept query object
 ```ruby
 visitor.accept(id.count)
 ```
 
-Where is the method `visitor.accept`?
+- Where is the method `visitor.accept`?
 ```ruby
 visitor.ancestors
 [
@@ -147,7 +147,7 @@ def accept object
 end
 ```
 
-Simply combine some strings!
+- Simply combine some strings!
 ```ruby
   # in Arel::Visitors::ToSql
   visitor.visit_Arel_Nodes_Count(id.count)
@@ -161,7 +161,7 @@ end
   visitor.visit_Arel_SqlLiteral(id)
 ```
 
-Go through complexer sql
+- Go through more complexed sql
 ```ruby
 user = Arel::Table.new('users')
 
