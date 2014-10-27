@@ -71,8 +71,9 @@ User.where(
     or(t[:id].eq 1024)
 )
 ```
-
+### How Arel works?
 #### Arel-SQL Mapping
+
 ```ruby
 File.write('arel.dot', arel.to_dot)
 system %x(dot arel.dot -T png -o arel.png)
@@ -99,7 +100,7 @@ system %x(dot arel.dot -T png -o arel.png)
 
   ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
-### How Arel works?
+#### Source Code Inspection
 - KEY METHOD: `to_sql`
 
 ```ruby
@@ -224,6 +225,7 @@ arel = NewArel.new.
   where('id < 10').
   where('id > 5').
   select(:id, :user_name)
+
 arel.to_sql
 ```
 ### Why use Visitor Pattern?
