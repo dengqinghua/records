@@ -13,7 +13,7 @@ Keywords:
 ## How
 ### How to use Arel?
 
-- Using with `ActiveRecord::Base.find_by_sql`
+- *ActiveRecord::Base.find_by_sql(arel.to_sql)*
 
 ```ruby
 require 'arel'
@@ -53,7 +53,7 @@ sql = arel.to_sql
 User.find_by_sql(sql)
 ```
 
-- Using with `ActiveRecord::Base.where`
+- `ActiveRecord::Base.where(arel_node)`
 
 ```ruby
 # ... Some codes are ommited
@@ -101,7 +101,7 @@ system %x(dot arel.dot -T png -o arel.png)
   ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
 #### Source Code Inspection
-KEY METHOD: `to_sql`
+KEY METHOD: *to_sql*
 
 ```ruby
 id    = Arel::SqlLiteral.new('id')
@@ -128,13 +128,13 @@ connection = ActiveRecord::Base.connection
 visitor    = connection.visitor
 ```
 
-Visitor can accept query object
+Visitor can accept object
 
 ```ruby
 visitor.accept(id.count)
 ```
 
-Where is the method `visitor.accept`?
+Where is the method *visitor.accept*?
 
 ```ruby
 visitor.ancestors
@@ -157,16 +157,16 @@ end
 Simply combine some strings!
 
 ```ruby
-  # Arel::Visitors::ToSql
-  visitor.visit_Arel_Nodes_Count(id.count)
+# Arel::Visitors::ToSql
+visitor.visit_Arel_Nodes_Count(id.count)
 
-  def visit_Arel_Nodes_Count o
-    "COUNT(#{o.distinct ? 'DISTINCT ' : ''}#{o.expressions.map { |x|
-    visit x
-    }.join(', ')})#{o.alias ? " AS #{visit o.alias}" : ''}"
+def visit_Arel_Nodes_Count o
+  "COUNT(#{o.distinct ? 'DISTINCT ' : ''}#{o.expressions.map { |x|
+  visit x
+  }.join(', ')})#{o.alias ? " AS #{visit o.alias}" : ''}"
 end
 
-  visitor.visit_Arel_SqlLiteral(id)
+visitor.visit_Arel_SqlLiteral(id)
 ```
 
 Go through more complexed sql
@@ -185,8 +185,10 @@ arel.to_sql
 
 ### Conclusion
 - Arel uses `to_sql` to get the sql.
-- Arel didn't really connect to sql server, she only does the `join sql string` thing.
-- All `to_sql` comes to visit\_Arel\_Nodes\_XXX, that is, Arel will visit each node of the AST.
+- Arel didn't really connect to sql server, she only does the
+'joining sql string' thing.
+- All `to_sql` comes to visit\_Arel\_Nodes\_XXX, that is, Arel will visit each
+node of the AST, and then transfered each node to the corresponding sql.
 
 ## Why
 ### Why use AST?
