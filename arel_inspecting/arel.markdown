@@ -231,3 +231,16 @@ arel = NewArel.new.
 arel.to_sql
 ```
 ### Why use Visitor Pattern?
+
+## What's more
+- TreeManager
+  * SelectManager
+  * UpdateManager
+  * InsertManager
+  * DeleteManager
+
+- visitors
+  * mysql
+  * sqlite
+  * mssql
+  * and so on
