@@ -12,7 +12,9 @@ Keywords:
 
 ## How
 ### How to use Arel
-1. Using with `ActiveRecord::Base.find_by_sql`
+
+- Using with `ActiveRecord::Base.find_by_sql`
+
 ```ruby
 require 'arel'
 require 'active_record'
@@ -51,7 +53,8 @@ sql = arel.to_sql
 User.find_by_sql(sql)
 ```
 
-2. Using with `ActiveRecord::Base.where`
+- Using with `ActiveRecord::Base.where`
+
 ```ruby
 # ... Some codes are ommited
 #
@@ -68,6 +71,7 @@ User.where(
     or(t[:id].eq 1024)
 )
 ```
+
 ### Arel-SQL Mapping
 ```ruby
 File.write('arel.dot', arel.to_dot)
@@ -81,21 +85,23 @@ system %x(dot arel.dot -T png -o arel.png)
     OFFSET 10
 ```
 
-1. The ORIGIN DESIGN of AST:
+- The ORIGIN DESIGN of AST:
 
-- [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
+* [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
 
 ![ORIGIN-SQL1](https://www.sqlite.org/images/syntax/simple-select-stmt.gif)
 
-- [SelectCore](https://www.sqlite.org/syntax/select-core.html)
+* [SelectCore](https://www.sqlite.org/syntax/select-core.html)
 
 ![ORIGIN-SQL2](https://www.sqlite.org/images/syntax/select-core.gif)
 
-2. The Arel-AST
-![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
+- The Arel-AST
+
+* ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
 ### How Arel works?
-- key method: `to_sql`
+- KEY METHOD: `to_sql`
+
 ```ruby
 id    = Arel::SqlLiteral.new('id')
 count = id.count
@@ -108,23 +114,27 @@ def to_sql engine = Table.engine
 end
 ```
 
-Arel needs a engine: *ActiveRecord::Base*
+- Arel needs a engine: *ActiveRecord::Base*
+
 ```ruby
 Arel::Table.engine
 ```
 
 - When connectioned, the connection has a visitor
+
 ```ruby
 connection = ActiveRecord::Base.connection
 visitor    = connection.visitor
 ```
 
 - Visitor can accept query object
+
 ```ruby
 visitor.accept(id.count)
 ```
 
 - Where is the method `visitor.accept`?
+
 ```ruby
 visitor.ancestors
 [
@@ -133,12 +143,8 @@ visitor.ancestors
   Arel::Visitors::MySQL,
   Arel::Visitors::ToSql,
   Arel::Visitors::Visitor,
-  Object,
-  JSON::Ext::Generator::GeneratorMethods::Object,
-  ActiveSupport::Dependencies::Loadable,
-  PP::ObjectMixin,
-  Kernel,
-  BasicObject
+  Object
+  # omited ...
 ]
 
 # Arel::Visitors::Visitor
@@ -148,8 +154,9 @@ end
 ```
 
 - Simply combine some strings!
+
 ```ruby
-  # in Arel::Visitors::ToSql
+  # Arel::Visitors::ToSql
   visitor.visit_Arel_Nodes_Count(id.count)
 
   def visit_Arel_Nodes_Count o
@@ -176,9 +183,9 @@ arel.to_sql
 ```
 
 ### Conclusion
-  1. Arel uses `to_sql` to get the sql.
-  2. Arel didn't really connect to sql server, she only does the `join sql string` thing.
-  3. All `to_sql` comes to visit\_Arel\_Nodes\_XXX, that is, Arel will visit each node of the AST.
+- Arel uses `to_sql` to get the sql.
+- Arel didn't really connect to sql server, she only does the `join sql string` thing.
+- All `to_sql` comes to visit\_Arel\_Nodes\_XXX, that is, Arel will visit each node of the AST.
 
 ## Why
 ### Why use AST
