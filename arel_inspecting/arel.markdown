@@ -13,7 +13,7 @@ Keywords:
 ## How
 ### How to use Arel?
 
-- *ActiveRecord::Base.find_by_sql(arel.to_sql)*
+- With `ActiveRecord::Base.find_by_sql(arel.to_sql)`
 
 ```ruby
 require 'arel'
@@ -53,12 +53,12 @@ sql = arel.to_sql
 User.find_by_sql(sql)
 ```
 
-- `ActiveRecord::Base.where(arel_node)`
+- With `ActiveRecord::Base.where(arel_node)`
 
 ```ruby
 # ... Some codes are ommited
 #
-#  SELECT `users`.* FROM `users`
+#  SELECT `users`.` FROM `users`
 #     WHERE(
 #       `users`.`id` < 10
 #          AND `users`.`id` > 0
@@ -88,11 +88,11 @@ system %x(dot arel.dot -T png -o arel.png)
 
 - The ORIGIN DESIGN of AST:
 
-  * [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
+  ` [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
 
   ![ORIGIN-SQL1](https://www.sqlite.org/images/syntax/simple-select-stmt.gif)
 
-  * [SelectCore](https://www.sqlite.org/syntax/select-core.html)
+  ` [SelectCore](https://www.sqlite.org/syntax/select-core.html)
 
   ![ORIGIN-SQL2](https://www.sqlite.org/images/syntax/select-core.gif)
 
@@ -101,7 +101,7 @@ system %x(dot arel.dot -T png -o arel.png)
   ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
 #### Source Code Inspection
-KEY METHOD: *to_sql*
+KEY METHOD: `to_sql`
 
 ```ruby
 id    = Arel::SqlLiteral.new('id')
@@ -115,7 +115,7 @@ def to_sql engine = Table.engine
 end
 ```
 
-Arel needs a engine: *ActiveRecord::Base*
+Arel needs a engine: `ActiveRecord::Base`
 
 ```ruby
 Arel::Table.engine
@@ -134,7 +134,7 @@ Visitor can accept object
 visitor.accept(id.count)
 ```
 
-Where is the method *visitor.accept*?
+Where is the method `visitor.accept`?
 
 ```ruby
 visitor.ancestors
