@@ -1,6 +1,6 @@
 # Arel Inspection
-## What is Arel
-
+## What
+### What is Arel?
 ActiveRelation -> Arel
 
 Arel is a SQL AST manager for Ruby.
@@ -11,7 +11,7 @@ Keywords:
 2. [Visitor Pattern](http://en.wikipedia.org/wiki/Visitor_pattern)
 
 ## How
-### How to use Arel
+### How to use Arel?
 
 - Using with `ActiveRecord::Base.find_by_sql`
 
@@ -72,7 +72,7 @@ User.where(
 )
 ```
 
-### Arel-SQL Mapping
+#### Arel-SQL Mapping
 ```ruby
 File.write('arel.dot', arel.to_dot)
 system %x(dot arel.dot -T png -o arel.png)
@@ -188,7 +188,7 @@ arel.to_sql
 - All `to_sql` comes to visit\_Arel\_Nodes\_XXX, that is, Arel will visit each node of the AST.
 
 ## Why
-### Why use AST
+### Why use AST?
 ```ruby
 class NewArel
   attr_accessor :where, :select, :order, :skip, :limit
