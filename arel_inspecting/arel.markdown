@@ -101,7 +101,7 @@ system %x(dot arel.dot -T png -o arel.png)
   ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
 #### Source Code Inspection
-- KEY METHOD: `to_sql`
+KEY METHOD: `to_sql`
 
 ```ruby
 id    = Arel::SqlLiteral.new('id')
@@ -115,26 +115,26 @@ def to_sql engine = Table.engine
 end
 ```
 
-- Arel needs a engine: *ActiveRecord::Base*
+Arel needs a engine: *ActiveRecord::Base*
 
 ```ruby
 Arel::Table.engine
 ```
 
-- When connectioned, the connection has a visitor
+When connectioned, the connection has a visitor
 
 ```ruby
 connection = ActiveRecord::Base.connection
 visitor    = connection.visitor
 ```
 
-- Visitor can accept query object
+Visitor can accept query object
 
 ```ruby
 visitor.accept(id.count)
 ```
 
-- Where is the method `visitor.accept`?
+Where is the method `visitor.accept`?
 
 ```ruby
 visitor.ancestors
@@ -154,7 +154,7 @@ def accept object
 end
 ```
 
-- Simply combine some strings!
+Simply combine some strings!
 
 ```ruby
   # Arel::Visitors::ToSql
@@ -169,7 +169,7 @@ end
   visitor.visit_Arel_SqlLiteral(id)
 ```
 
-- Go through more complexed sql
+Go through more complexed sql
 ```ruby
 user = Arel::Table.new('users')
 
