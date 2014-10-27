@@ -205,11 +205,15 @@ class NewArel
   def select(*args)
     @selects ||= []
     @selects = @selects.concat(args).compact.uniq
+
+    self
   end
 
   def order(string)
     @orders ||= []
     @orders << string
+
+    self
   end
 
   # ... omited
