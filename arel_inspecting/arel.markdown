@@ -87,17 +87,17 @@ system %x(dot arel.dot -T png -o arel.png)
 
 - The ORIGIN DESIGN of AST:
 
-* [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
+  * [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
 
-![ORIGIN-SQL1](https://www.sqlite.org/images/syntax/simple-select-stmt.gif)
+  ![ORIGIN-SQL1](https://www.sqlite.org/images/syntax/simple-select-stmt.gif)
 
-* [SelectCore](https://www.sqlite.org/syntax/select-core.html)
+  * [SelectCore](https://www.sqlite.org/syntax/select-core.html)
 
-![ORIGIN-SQL2](https://www.sqlite.org/images/syntax/select-core.gif)
+  ![ORIGIN-SQL2](https://www.sqlite.org/images/syntax/select-core.gif)
 
 - The Arel-AST
 
-* ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
+  ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
 ### How Arel works?
 - KEY METHOD: `to_sql`
