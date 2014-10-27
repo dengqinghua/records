@@ -73,6 +73,18 @@ User.where(
 ```
 ### How Arel works?
 #### Arel-SQL Mapping
+- The ORIGIN DESIGN of AST:
+
+  * [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
+
+  ![ORIGIN-SQL1](https://www.sqlite.org/images/syntax/simple-select-stmt.gif)
+
+  * [SelectCore](https://www.sqlite.org/syntax/select-core.html)
+
+  ![ORIGIN-SQL2](https://www.sqlite.org/images/syntax/select-core.gif)
+
+
+- The Arel-AST
 
 ```ruby
 File.write('arel.dot', arel.to_dot)
@@ -85,19 +97,6 @@ system %x(dot arel.dot -T png -o arel.png)
     LIMIT 5
     OFFSET 10
 ```
-
-- The ORIGIN DESIGN of AST:
-
-  * [SelectStatement](https://www.sqlite.org/syntax/select-stmt.html)
-
-  ![ORIGIN-SQL1](https://www.sqlite.org/images/syntax/simple-select-stmt.gif)
-
-  * [SelectCore](https://www.sqlite.org/syntax/select-core.html)
-
-  ![ORIGIN-SQL2](https://www.sqlite.org/images/syntax/select-core.gif)
-
-- The Arel-AST
-
   ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
 #### Source Code Inspection
