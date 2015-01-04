@@ -455,7 +455,7 @@ NOTE: ActiveRecord::Base.using_slave 方法可以添加在所有的relation后�
 在database.yml文件中的数据库为**主库连接**, 在设计从库连接时,
 我们先需要看主库是如何连接的:
 
-![active\_record\_connection](../assets/images/active_record_connection.png)
+![active\_record\_connection](https://github.com/dengqinghua/records/blob/master/master_slave/active_record_connection.png)
 
 NOTE: 在这里的连接还有几个细节需要注意一下:
 1. 我们在项目启动的时候就建立mysql连接
@@ -466,7 +466,7 @@ NOTE: 在这里的连接还有几个细节需要注意一下:
 
 在shards.yml文件中的数据库为**从库连接**, 从库连接设计如下:
 
-![master\_connection](../assets/images/master_slave.png)
+![master\_connection](https://github.com/dengqinghua/records/blob/master/master_slave/master_slave.png)
 
 NOTE: 在这里的连接还有几个细节需要注意一下:
 1. 我们也需要在项目启动的时候就建立mysql连接
@@ -660,7 +660,7 @@ DSG.ancestors == [YoName, DSG, Object, Kernel, BasicObject]
 
 如何触发从库连接? 可以对比主库的连接流程
 
-![master\_slave\_relation](../assets/images/master_slave_relation.jpg)
+![master\_slave\_relation](https://github.com/dengqinghua/records/blob/master/master_slave/master_slave_relation.png)
 
 在这个过程中最重要的为`ActiveRecord::Relation#to_a`和`ActiveRecord::Base.connection`方法
 
