@@ -29,7 +29,7 @@ gem install pry
 show-method String#blank?
 
 # =>
-From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@zhe800_zhaoshang/gems/activesupport-4.1.1/lib/active_support/core_ext/object/blank.rb @ line 116:
+From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@somewhere_zhaoshang/gems/activesupport-4.1.1/lib/active_support/core_ext/object/blank.rb @ line 116:
 Owner: String
 Visibility: public
 Number of lines: 3
@@ -44,7 +44,7 @@ end
 ```ruby
 show-method ActiveRecord::Base.where
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@zhe800_zhaoshang/gems/activerecord-4.1.1/lib/active_record/querying.rb @ line 10:
+From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@somewhere_zhaoshang/gems/activerecord-4.1.1/lib/active_record/querying.rb @ line 10:
 Owner: ActiveRecord::Querying
 Visibility: public
 Number of lines: 3
@@ -57,7 +57,7 @@ delegate :where, to: :all
 ```ruby
 show-method TbShop#status_name
 
-From: /home/dengqinghua/workspace/zhe800_zhaoshang/app/models/concerns/status_able.rb @ line 116:
+From: /home/dengqinghua/workspace/somewhere_zhaoshang/app/models/concerns/status_able.rb @ line 116:
 Owner: TbShop
 Visibility: public
 Number of lines: 3
@@ -72,7 +72,7 @@ end
 ```ruby
 show-method ActiveRecord
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@zhe800_zhaoshang/gems/activerecord-4.1.1/lib/active_record/gem_version.rb @ line 1:
+From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@somewhere_zhaoshang/gems/activerecord-4.1.1/lib/active_record/gem_version.rb @ line 1:
 Module name: ActiveRecord
 Number of monkeypatches: 3. Use the `-a` option to display all available monkeypatches
 Number of lines: 15
@@ -132,7 +132,7 @@ edit可以直接帮你打开某个方法所在的文件
 ```ruby
 show-method ActiveRecord::Base.establish_connection
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@zhe800_zhaoshang/gems/activerecord-4.1.1/lib/active_record/connection_handling.rb @ line 47:
+From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@somewhere_zhaoshang/gems/activerecord-4.1.1/lib/active_record/connection_handling.rb @ line 47:
 Owner: ActiveRecord::ConnectionHandling
 Visibility: public
 Number of lines: 13
@@ -152,7 +152,7 @@ def establish_connection(spec = nil)
 end
 
 edit ActiveRecord::Base.establish_connection
-edit /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@zhe800_zhaoshang/gems/activerecord-4.1.1/lib/active_record/connection_handling.rb
+edit /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@somewhere_zhaoshang/gems/activerecord-4.1.1/lib/active_record/connection_handling.rb
 ```
 
 ActiveRecord::Relation
@@ -163,7 +163,7 @@ ActiveRecord::Relation
 show-method ActiveRecord::Base.where
 # =>
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@zhe800_zhaoshang/gems/activerecord-4.1.1/lib/active_record/querying.rb @ line 10:
+From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@somewhere_zhaoshang/gems/activerecord-4.1.1/lib/active_record/querying.rb @ line 10:
 Owner: ActiveRecord::Querying
 Visibility: public
 Number of lines: 3
@@ -178,7 +178,7 @@ delegate :select, :group, :order, :except, :reorder, :limit, :offset, :joins,
 ```ruby
 show-method ActiveRecord::Base.scoped
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@zhe800/gems/activerecord-3.2.13/lib/active_record/scoping/named.rb @ line 30:
+From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@somewhere/gems/activerecord-3.2.13/lib/active_record/scoping/named.rb @ line 30:
 Owner: ActiveRecord::Scoping::Named::ClassMethods
 Visibility: public
 Number of lines: 13
@@ -203,7 +203,7 @@ end
 ```ruby
 show-method ActiveRecord::Base.relation
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@zhe800/gems/activerecord-3.2.13/lib/active_record/base.rb @ line 452:
+From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@somewhere/gems/activerecord-3.2.13/lib/active_record/base.rb @ line 452:
 Owner: #<Class:ActiveRecord::Base>
 Visibility: private
 Number of lines: 9
@@ -222,7 +222,7 @@ end
 ```ruby
 show-method ActiveRecord::Relation#where
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@zhe800/gems/activerecord-3.2.13/lib/active_record/relation/query_methods.rb @ line 132:
+From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@somewhere/gems/activerecord-3.2.13/lib/active_record/relation/query_methods.rb @ line 132:
 Owner: ActiveRecord::QueryMethods
 Visibility: public
 Number of lines: 7
@@ -249,7 +249,7 @@ Role.where.inspect
 ```ruby
 show-method ActiveRecord::Relation#inspect
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@zhe800/gems/activerecord-3.2.13/lib/active_record/relation.rb @ line 497:
+From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@somewhere/gems/activerecord-3.2.13/lib/active_record/relation.rb @ line 497:
 Owner: ActiveRecord::Relation
 Visibility: public
 Number of lines: 3
@@ -260,7 +260,7 @@ end
 
 show-method ActiveRecord::Relation#to_a
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@zhe800/gems/activerecord-3.2.13/lib/active_record/relation.rb @ line 150:
+From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@somewhere/gems/activerecord-3.2.13/lib/active_record/relation.rb @ line 150:
 Owner: ActiveRecord::Relation
 Visibility: public
 Number of lines: 13
@@ -287,7 +287,7 @@ NOTE: 通过注释可以看到, 最后Relation真正的查询都是通过调用`
 ```ruby
 show-method ActiveRecord::Relation#each
 
-From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@zhe800/gems/activerecord-3.2.13/lib/active_record/relation/delegation.rb @ line 5:
+From: /home/dengqinghua/.rvm/gems/ruby-2.1.1@somewhere/gems/activerecord-3.2.13/lib/active_record/relation/delegation.rb @ line 5:
 Owner: ActiveRecord::Delegation
 Visibility: public
 Number of lines: 1
@@ -421,7 +421,7 @@ using_slave: false
 ```ruby
 # in shards.yml
 development:
-  zhe800_slave:
+  somewhere_slave:
     adapter: mysql2
     encoding: utf8
     reconnect: false
@@ -433,18 +433,18 @@ development:
     port: 13307
 ```
 
-从库设置如上所示, 其中`zhe800_slave`为slave的名称
+从库设置如上所示, 其中`somewhere_slave`为slave的名称
 
-我们在项目中应该使用的从库为: **zhe800_slave**. 如果你的代码中使用了很复杂的查询, 可以显式地调用从库, 如:
+我们在项目中应该使用的从库为: **somewhere_slave**. 如果你的代码中使用了很复杂的查询, 可以显式地调用从库, 如:
 
 ```ruby
-TbShop.using_slave(:zhe800_slave).
+TbShop.using_slave(:somewhere_slave).
   where(nick_name: 'DaShuaiGe').
   where(id: 1024)
 # Or
 TbShop.where(nick_name: 'DSG').
   order('created_at DESC').
-  using_slave(:zhe800_slave)
+  using_slave(:somewhere_slave)
 ```
 
 NOTE: ActiveRecord::Base.using_slave 方法可以添加在所有的relation后面,
@@ -481,7 +481,7 @@ In Rails, 建立连接时调用的是`ActiveRecord::Base.establish_connection`�
 ```ruby
 # ActiveRecord::Base.establish_connection
 #
-# From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@zhe800_zhaoshang/gems/activerecord-4.1.1/lib/active_record/connection_handling.rb @ line 47:
+# From: /home/dengqinghua/.rvm/gems/ruby-2.0.0-p481@somewhere_zhaoshang/gems/activerecord-4.1.1/lib/active_record/connection_handling.rb @ line 47:
 # Owner: ActiveRecord::ConnectionHandling
 # Visibility: public
 # Number of lines: 13
@@ -541,7 +541,7 @@ end
 
 NOTE:
 spec: 配置文件信息, 即shards.yml文件的信息
-proxy: 从库的名称, 如 zhe800_slave 等
+proxy: 从库的名称, 如 somewhere_slave 等
 ActiveRecord::Base.remove_connection: 在建立新的连接之前, 需要现将现有的同名字的连接移除.
 ActiveRecord::Base.connection_handler.establish_connection(proxy, spec): 将`配置文件信息`, `连接名`作为参数, 利用Rails的方法建立连接.
 
@@ -574,12 +574,12 @@ end
 NOTE: trigger为枪柄, pull the trigger 即为开枪的意思, 这里的trigger可以理解为从库的触发器.
 
 ```ruby
-User.using_slave(:zhe800_slave).where(nick_name: 'DSG')
+User.using_slave(:somewhere_slave).where(nick_name: 'DSG')
 ```
 
 添加 `ActiveRecord::Base.using_slave` 方法, 该方法
 
-1. 获取当前的 从库名称: zhe800_slave, 可通过该名称获取 从库连接
+1. 获取当前的 从库名称: somewhere_slave, 可通过该名称获取 从库连接
 2. 该方法的返回值为`<#ActiveRecord::Relation>`
 
 ```ruby
@@ -684,7 +684,7 @@ NOTE:
 ```ruby
 module MasterSlave
   module Relation
-    ZHE800_ZHAOSHANG_RAILS_VERSION = '4.1.1'
+    SOME_ZHAOSHANG_RAILS_VERSION = '4.1.1'
 
     ##
     # ==== Description
@@ -692,8 +692,8 @@ module MasterSlave
     #
     # ==== Examples
     #
-    #   Deal.using_slave(:zhe800_slave).where(id: 2)
-    #   Deal.where(id: 1024).using_slave(:zhe800_slave)
+    #   Deal.using_slave(:somewhere_slave).where(id: 2)
+    #   Deal.where(id: 1024).using_slave(:somewhere_slave)
     #
     # ==== Returns
     #   <#ActiveRecord::Relation>|Raise Exception
@@ -719,7 +719,7 @@ module MasterSlave
     def to_a
       using_master_database unless @using_slave
 
-      if Rails.version == ZHE800_ZHAOSHANG_RAILS_VERSION
+      if Rails.version == SOME_ZHAOSHANG_RAILS_VERSION
         super
       else
         raise "current Rails Version: #{Rails.version} is not supported"
