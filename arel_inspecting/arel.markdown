@@ -111,7 +111,9 @@ end
 
 return a
 ```
-![AST](../assets/images/AST.png)
+![AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/AST.png)
+
+
 
 ### SQL Design Pattern
 Take the `SELECT` part as an example:
@@ -120,11 +122,11 @@ INFO: The design comes from [SQL As Understood By SQLite](https://www.sqlite.org
 
   * select\_statement
 
-  ![select-stmt](../assets/images/factored-select-stmt.gif)
+  ![select-stmt](https://github.com/dengqinghua/records/blob/master/arel_inspecting/factored-select-stmt.gif)
 
   * select\_core
 
-  ![select-core](../assets/images/select-core.gif)
+  ![select-core](https://github.com/dengqinghua/records/blob/master/arel_inspecting/select-core.gif)
 
 The `SELECT` part can be seen as below:
 
@@ -169,7 +171,7 @@ system %x(dot arel.dot -T png -o arel.png)
 
 Then we get the map of Arel
 
-  ![Arel-AST](../assets/images/arel.png)
+  ![Arel-AST](https://github.com/dengqinghua/records/blob/master/arel_inspecting/arel.png)
 
 From the AST, we know
 * The concept of select\_statement and select\_core comes from
