@@ -3,6 +3,8 @@ records
 
 记录一些技术心得, markdown的书写格式来自于: [rails_guides](http://guides.rubyonrails.org/ruby_on_rails_guides_guidelines.html)
 
+-------------------------------------------------
+
 目录
 ----
 
